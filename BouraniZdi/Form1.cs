@@ -15,10 +15,8 @@ namespace BouraniZdi
 		// kreslící knihovna
 		Graphics mobjGrafika;
 
-		// parametry kuličky
-		int mintSouradniceX, mintSouradniceY;
-		int mintPosunX, mintPosunY;
-		const int mcnVelikost = 20;
+		// kulička
+		clsKulicka mobjKulicka;
 
 		// ---------------------------------
 		// konstruktor
@@ -36,13 +34,12 @@ namespace BouraniZdi
 			// připojit grafiku k pictureboxu
 			mobjGrafika = pbPlatno.CreateGraphics();
 
-			// nastavení kuličky
-			mintSouradniceX = mintSouradniceY = 100;
-			mintPosunX = mintPosunY = 3;
+			// vytvořit kuličku
+			mobjKulicka = new clsKulicka(mobjGrafika, 150, 40);
 
 			// spustit timer
 			tmrVykreslovani.Interval = 50;
-			tmrVykreslovani.Start(); // tmrVykreslovani.Stop();
+			tmrVykreslovani.Start();
 		}
 
 		// ---------------------------------
@@ -54,19 +51,7 @@ namespace BouraniZdi
 			mobjGrafika.Clear(Color.White);
 
 			// vykreslit kuličku
-			mobjGrafika.FillEllipse(Brushes.Blue, mintSouradniceX, mintSouradniceY, 20, 20);
-
-			// pohnout kuličkou
-			mintSouradniceX = mintSouradniceX + mintPosunX;
-			mintSouradniceY = mintSouradniceY + mintPosunY;
-
-			// test odrazu Y
-			if (((mintSouradniceY + mcnVelikost) > pbPlatno.Height) || (mintSouradniceY < 0))
-				mintPosunY = mintPosunY * (-1);
-
-			// test odrazu X
-			if (((mintSouradniceX + mcnVelikost) > pbPlatno.Width) || (mintSouradniceX < 0))
-				mintPosunX = mintPosunX * (-1);
+			mobjKulicka.PosunVykresli();
 		}
 	}
 }
