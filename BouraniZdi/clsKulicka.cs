@@ -27,7 +27,7 @@ namespace BouraniZdi
 			mobjGrafika = objGrafika;
 			mintSouradniceX = intX;
 			mintSouradniceY = intY;
-			mintPosunX = mintPosunY = 3;
+			mintPosunX = mintPosunY = 10;
 		}
 
 		// ---------------------------------
@@ -36,7 +36,7 @@ namespace BouraniZdi
 		public void PosunVykresli()
 		{
 			// vykreslit kuličku
-			mobjGrafika.FillEllipse(Brushes.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
+			mobjGrafika.FillEllipse(Brushes.White, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
 
 			// pohnout kuličkou
 			mintSouradniceX = mintSouradniceX + mintPosunX;
@@ -49,6 +49,9 @@ namespace BouraniZdi
 			// test odrazu X
 			if (((mintSouradniceX + mcnVelikost) > mobjGrafika.VisibleClipBounds.Width) || (mintSouradniceX < 0))
 				mintPosunX = mintPosunX * (-1);
+
+			// vykreslit kuličku
+			mobjGrafika.FillEllipse(Brushes.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
 		}
 	}
 }

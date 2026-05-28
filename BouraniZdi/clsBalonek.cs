@@ -26,5 +26,14 @@ namespace BouraniZdi
 			mintSouradniceX = intX;
 			mintSouradniceY = intY;
 		}
+
+		// --------------------------------
+		// vykreslení
+		// --------------------------------
+		public void Vykresli()
+		{
+			// vykreslit balonek
+			mobjGrafika.DrawEllipse(Pens.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
+		}
 	}
 }

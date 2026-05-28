@@ -18,6 +18,9 @@ namespace BouraniZdi
 		// kulička
 		clsKulicka mobjKulicka;
 
+		// balonek
+		clsBalonek mobjBalonek;
+
 		// ---------------------------------
 		// konstruktor
 		// ---------------------------------
@@ -37,6 +40,9 @@ namespace BouraniZdi
 			// vytvořit kuličku
 			mobjKulicka = new clsKulicka(mobjGrafika, 150, 40);
 
+			// vytvořit balonek
+			mobjBalonek = new clsBalonek(mobjGrafika, 10, 10);
+
 			// spustit timer
 			tmrVykreslovani.Interval = 50;
 			tmrVykreslovani.Start();
@@ -48,10 +54,13 @@ namespace BouraniZdi
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			// smazat plátno
-			mobjGrafika.Clear(Color.White);
+			//mobjGrafika.Clear(Color.White);
 
 			// vykreslit kuličku
 			mobjKulicka.PosunVykresli();
+
+			// vykreslit balonek
+			mobjBalonek.Vykresli();
 		}
 	}
 }
