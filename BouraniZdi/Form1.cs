@@ -18,8 +18,9 @@ namespace BouraniZdi
 		// kulička
 		clsKulicka mobjKulicka;
 
-		// balonek
-		clsBalonek mobjBalonek;
+		// balonky
+		clsBalonek [] mobjBalonek;
+		const int cnPocetBalonku = 22;
 
 		// ---------------------------------
 		// konstruktor
@@ -34,17 +35,37 @@ namespace BouraniZdi
 		// ---------------------------------
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			int lintX, lintY;
+
 			// připojit grafiku k pictureboxu
 			mobjGrafika = pbPlatno.CreateGraphics();
 
 			// vytvořit kuličku
 			mobjKulicka = new clsKulicka(mobjGrafika, 150, 40);
 
+			// vytvořit pole
+			mobjBalonek = new clsBalonek[cnPocetBalonku];
+
 			// vytvořit balonek
-			mobjBalonek = new clsBalonek(mobjGrafika, 10, 10);
+			lintX = lintY = 10;
+			for (int i = 0; i < cnPocetBalonku; i++)
+			{
+				// vytvořit
+				mobjBalonek[i] = new clsBalonek(mobjGrafika, lintX, lintY);
+
+				// posun x
+				lintX = lintX + 60;
+
+				// posun y
+				if (lintX > pbPlatno.Width)
+				{
+					lintX = 10;
+					lintY = lintY + 60;
+				}
+			}
 
 			// spustit timer
-			tmrVykreslovani.Interval = 50;
+			tmrVykreslovani.Interval = 10;
 			tmrVykreslovani.Start();
 		}
 
@@ -60,7 +81,8 @@ namespace BouraniZdi
 			mobjKulicka.PosunVykresli();
 
 			// vykreslit balonek
-			mobjBalonek.Vykresli();
+			for (int i = 0; i < cnPocetBalonku; i++)
+				mobjBalonek[i].Vykresli();
 		}
 	}
 }

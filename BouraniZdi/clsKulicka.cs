@@ -27,7 +27,7 @@ namespace BouraniZdi
 			mobjGrafika = objGrafika;
 			mintSouradniceX = intX;
 			mintSouradniceY = intY;
-			mintPosunX = mintPosunY = 10;
+			mintPosunX = mintPosunY = 5;
 		}
 
 		// ---------------------------------
