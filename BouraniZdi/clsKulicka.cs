@@ -18,6 +18,18 @@ namespace BouraniZdi
 		int mintPosunX, mintPosunY;
 		const int mcnVelikost = 20;
 
+		// public souradnice X
+		public int intX
+		{
+			get { return mintSouradniceX; }
+		}
+
+		// public souradnice Y
+		public int intY
+		{
+			get { return mintSouradniceY; }
+		}
+
 		// ---------------------------------
 		// konstruktor
 		// ---------------------------------

@@ -15,6 +15,7 @@ namespace BouraniZdi
 		// parametry balonku
 		int mintSouradniceX, mintSouradniceY;
 		const int mcnVelikost = 40;
+		bool mblJeVidet;
 
 		// --------------------------------
 		// konstruktor
@@ -25,6 +26,7 @@ namespace BouraniZdi
 			mobjGrafika = objGrafika;
 			mintSouradniceX = intX;
 			mintSouradniceY = intY;
+			mblJeVidet = true;
 		}
 
 		// --------------------------------
@@ -33,7 +35,14 @@ namespace BouraniZdi
 		public void Vykresli()
 		{
 			// vykreslit balonek
-			mobjGrafika.DrawEllipse(Pens.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
+			if (mblJeVidet == true)
+			{
+				mobjGrafika.DrawEllipse(Pens.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
+			}
+			else
+			{
+				mobjGrafika.DrawEllipse(Pens.White, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
+			}
 		}
 
 		// --------------------------------
@@ -43,6 +52,7 @@ namespace BouraniZdi
 		{
 			int lintBalonekX, lintBalonekY;
 			int lintKulickaX, lintKulickaY;
+			double ldblVzdalenostStredu, ldblSoucetPolomeru;
 
 			// střed balonku
 			lintBalonekX = mintSouradniceX + (mcnVelikost / 2);
@@ -51,6 +61,18 @@ namespace BouraniZdi
 			// střed kuličky
 			lintKulickaX = intX + (intVelikost / 2);
 			lintKulickaY = intY + (intVelikost / 2);
+
+			// součet poloměrů výpočet
+			ldblSoucetPolomeru = (mcnVelikost / 2) + (intVelikost / 2);
+
+			// výpočet vzdálenosti středů
+			ldblVzdalenostStredu = Math.Sqrt(Math.Pow(lintBalonekX - lintKulickaX, 2) + Math.Pow(lintBalonekY - lintKulickaY, 2));
+
+			// Kontrola kolize
+			if (ldblVzdalenostStredu < ldblSoucetPolomeru)
+			{
+				mblJeVidet = false; // Změna na bílou barvu
+			}
 		}
 	}
 }

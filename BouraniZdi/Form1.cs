@@ -22,6 +22,9 @@ namespace BouraniZdi
 		clsBalonek [] mobjBalonek;
 		const int cnPocetBalonku = 22;
 
+		// vozíček
+		clsVozicek mobjVozicek;
+
 		// ---------------------------------
 		// konstruktor
 		// ---------------------------------
@@ -64,6 +67,9 @@ namespace BouraniZdi
 				}
 			}
 
+			// vytvořit vozíček
+			mobjVozicek = new clsVozicek(mobjGrafika, pbPlatno.Width/2 - 60, pbPlatno.Height-20);
+
 			// spustit timer
 			tmrVykreslovani.Interval = 10;
 			tmrVykreslovani.Start();
@@ -82,7 +88,16 @@ namespace BouraniZdi
 
 			// vykreslit balonek
 			for (int i = 0; i < cnPocetBalonku; i++)
+			{
+				// test kolize
+				mobjBalonek[i].TestKolize(mobjKulicka.intX, mobjKulicka.intY, 20);
+
+				// vykreslit
 				mobjBalonek[i].Vykresli();
+			}
+
+			// vykreslit vozíček
+			mobjVozicek.NakresliSe();
 		}
 	}
 }

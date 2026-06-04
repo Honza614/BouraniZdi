@@ -38,9 +38,9 @@
 			// 
 			this.pbPlatno.BackColor = System.Drawing.Color.White;
 			this.pbPlatno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.pbPlatno.Location = new System.Drawing.Point(74, 57);
+			this.pbPlatno.Location = new System.Drawing.Point(12, 12);
 			this.pbPlatno.Name = "pbPlatno";
-			this.pbPlatno.Size = new System.Drawing.Size(651, 329);
+			this.pbPlatno.Size = new System.Drawing.Size(776, 525);
 			this.pbPlatno.TabIndex = 0;
 			this.pbPlatno.TabStop = false;
 			// 
@@ -52,7 +52,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(800, 549);
 			this.Controls.Add(this.pbPlatno);
 			this.Name = "Form1";
 			this.Text = "BouraniZdi";
