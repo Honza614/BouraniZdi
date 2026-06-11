@@ -54,9 +54,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 549);
 			this.Controls.Add(this.pbPlatno);
+			this.KeyPreview = true;
 			this.Name = "Form1";
 			this.Text = "BouraniZdi";
 			this.Load += new System.EventHandler(this.Form1_Load);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).EndInit();
 			this.ResumeLayout(false);
 

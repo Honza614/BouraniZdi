@@ -65,5 +65,23 @@ namespace BouraniZdi
 			// vykreslit kuličku
 			mobjGrafika.FillEllipse(Brushes.Blue, mintSouradniceX, mintSouradniceY, mcnVelikost, mcnVelikost);
 		}
+
+		// ---------------------------------
+		// odraz od vozíčku
+		// ---------------------------------
+		public void OdrazOdPlosiny(int intX, int intY, int intSirka)
+		{
+			int lintStredKulickyX;
+
+			// vypočítat souřadnici X středu kuličky
+			lintStredKulickyX = mintSouradniceX + mcnVelikost / 2;
+
+			// test kolize
+			if (mintSouradniceY + mcnVelikost > intY)
+			{
+				if ((lintStredKulickyX > intX) && (lintStredKulickyX < (intX + intSirka)))
+					mintPosunY = mintPosunY * (-1);
+			}
+		}
 	}
 }

@@ -20,7 +20,7 @@ namespace BouraniZdi
 
 		// balonky
 		clsBalonek [] mobjBalonek;
-		const int cnPocetBalonku = 22;
+		const int cnPocetBalonku = 26;
 
 		// vozíček
 		clsVozicek mobjVozicek;
@@ -98,6 +98,23 @@ namespace BouraniZdi
 
 			// vykreslit vozíček
 			mobjVozicek.NakresliSe();
+
+			// odraz od vozíčku
+			mobjKulicka.OdrazOdPlosiny(mobjVozicek.mintSouradniceX, mobjVozicek.mintSouradniceY, 150);
+		}
+
+		// ---------------------------------
+		// stisk klávesy
+		// ---------------------------------
+		private void Form1_KeyDown(object sender, KeyEventArgs e)
+		{
+			// posun doleva
+			if (e.KeyCode == Keys.A)
+				mobjVozicek.PosunSe(-10);
+
+			// posun doprava
+			if (e.KeyCode == Keys.D)
+				mobjVozicek.PosunSe(10);
 		}
 	}
 }
